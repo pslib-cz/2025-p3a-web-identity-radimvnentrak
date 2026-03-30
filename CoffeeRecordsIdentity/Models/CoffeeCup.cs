@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using Microsoft.AspNetCore.Identity;
 namespace CoffeeRecordsIdentity.Models
 {
-    public class CoffeeCup
+    public class CoffeeCup: IdentityUser
     {
         public int CoffeeCupId { get; set; }
         [Display(Name = "Short Name")]

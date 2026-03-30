@@ -8,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => { options.SignIn.RequireConfirmedAccount = true; options.Password.RequireDigit = false; options.Password.RequireNonAlphanumeric = false;/*zmírnìní žadavkù na heslo zde*/ }).AddEntityFrameworkStores<ApplicationDbContext>();
+//IdentityUser<PasswordOptions>(options => options.Password.RequireConfirmedPassword = true);
+
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

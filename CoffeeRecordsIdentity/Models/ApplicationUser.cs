@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoffeeRecordsIdentity.Models;
 
-public class ApplicationUser
+public class ApplicationUser: IdentityUser
 {
     [Required]
-    public int Id { get; set; }
+    public int Id { get; set; } 
     [Required]
     public string Name { get; set; } = string.Empty;
 }
